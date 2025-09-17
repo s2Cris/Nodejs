@@ -1,4 +1,5 @@
-const express = require("express");
+import express from "express";
+
 const router = express.Router();
 
 //página inicial
@@ -10,4 +11,4 @@ router.get("/", async (req, res) => {  // router - rota | "/" - rota raiz | rend
     
 });
 
-module.exports = router;
+export default router;

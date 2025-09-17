@@ -1,5 +1,6 @@
-    // Rotas de Categoria
-const express = require("express");
+import express from "express";
+import alunosController from "../controllers/alunosController.js";
+
 const router = express.Router();
 
 //listar categoria
@@ -19,11 +20,8 @@ router.get("/edit", async (req, res)=> {  // router - rota | "/edit" - rota atua
 });
 
 //add categoria
-router.get("/add", async (req, res)=> {  // router - rota | "/add" - rota atual | render - montar/construir
-    res.render("base", {
-        title: "Adicionar Alunos",
-        view: "alunos/add",
-    })
-});
+router.get("/add", alunosController.createForm);
 
-module.exports = router;
+router.post("/add", alunosController.create);
+
+export default router;

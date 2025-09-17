@@ -1,5 +1,5 @@
-// Rotas de Categoria
-const express = require("express");
+import express from "express";
+
 const router = express.Router();
 
 //listar categoria
@@ -26,4 +26,4 @@ router.get("/add", async (req, res)=> {  // router - rota | "/add" - rota atual 
     })
 });
 
-module.exports = router;
+export default router;
