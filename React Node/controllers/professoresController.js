@@ -11,7 +11,7 @@ const rootRef = ref(db, "professores");
 
   // [READ] Lista todas os alunos
   export function list(req, res) {
-    const alunosRef = ref(db, "professores");
+    const professoresRef = ref(db, "professores");
     onValue(professoresRef, (snapshot) => {
       const data = snapshot.val();
       const professores = data ? Object.values(data) : [];
