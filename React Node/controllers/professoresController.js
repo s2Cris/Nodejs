@@ -35,11 +35,11 @@ const rootRef = ref(db, "professores");
   // [CREATE - ACTION] Cria um aluno novo
   export async function create(req, res) {
     try {
-    const { nome, descricao } = req.body;
-    const professoresRef = ref(db, "professores");
-    const novo = push(professoresRef); // Cria um novo registro com ID único
-      await set(novo, { nome, descricao }); // Salva os dados no DB 
-        res.redirect("/professores");  
+      const { nome, descricao } = req.body;
+      const professoresRef = ref(db, "professores");
+      const novo = push(professoresRef); // Cria um novo registro com ID único
+        await set(novo, { nome, descricao }); // Salva os dados no DB 
+          res.redirect("/professores");  
     } catch (e) {
       console.error("Erro ao realizar cadastro de professor", e);
       res.status(500).send("Erro ao cadastrar professor");

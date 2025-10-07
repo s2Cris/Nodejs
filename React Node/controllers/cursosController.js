@@ -23,6 +23,7 @@ const rootRef = ref(db, "cursos");
     }, {onlyOnce: true})
   }
 
+  // Mostra o formulário de criação
   export function createForm(req, res) {
     // Apenas renderiza a página de criação
     res.render("base", {
@@ -34,11 +35,11 @@ const rootRef = ref(db, "cursos");
   // [CREATE - ACTION] Cria um curso novo
   export async function create(req, res) {
     try {
-    const { nome, descricao } = req.body;
-    const cursosRef = ref(db, "cursos");
-    const novo = push(cursosRef); // Cria um novo registro com ID único
-      await set(novo, { nome, descricao }); // Salva os dados no DB 
-        res.redirect("/cursos");  
+      const { nome, descricao } = req.body;
+      const cursosRef = ref(db, "cursos");
+      const novo = push(cursosRef); // Cria um novo registro com ID único
+        await set(novo, { nome, descricao }); // Salva os dados no DB 
+          res.redirect("/cursos");  
     } catch (e) {
       console.error("Erro ao realizar cadastro de curso", e);
       res.status(500).send("Erro ao cadastrar curso");

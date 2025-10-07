@@ -37,7 +37,7 @@ const rootRef = ref(db, "alunos");
     try {
       const { nome, descricao } = req.body;
       const alunosRef = ref(db, "alunos");
-      const novo = push(AlunosRef); // Cria um novo registro com ID único
+      const novo = push(alunosRef); // Cria um novo registro com ID único
         await set(novo, { nome, descricao }); // Salva os dados no DB 
           res.redirect("/alunos");  
     } catch (e) {
