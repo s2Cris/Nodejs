@@ -3,19 +3,27 @@
 <table class="table table-bordered table-striped table-sm">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Nome</th>
+            <th>ID</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                <a href="#"><i class="bi bi-trash-fill"></i></a>
-            </td>
-        </tr>
+        <% if (alunos.length === 0) { %>
+            <tr>
+                <td colspan="3" class="text-center">Nenhum aluno cadastrado.</td>
+            </tr>
+        <% } else { %>
+            <% alunos.forEach(aluno => { %>
+                <tr>
+                    <td><%= aluno.nome %></td>
+                    <td><%= aluno.descricao %> </td>
+                    <td class="text-end">
+                        <a href="#"><i class="bi bi-pencil-fill"></i></a>
+                        <a href="#"><i class="bi bi-trash-fill"></i></a>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } %>
     </tbody>
 </table>

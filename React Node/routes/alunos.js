@@ -1,17 +1,12 @@
 import express from "express";
-import alunosController from "../controllers/alunosController.js";
+import * as alunosController from "../controllers/alunosController.js";
 
 const router = express.Router();
 
-//listar categoria
-router.get("/", async (req, res)=> {  // router - rota | "/" - rota raiz | render - montar/construir
-    res.render("base", {
-        title: "Listar Alunos",
-        view: "alunos/show",
-    })
-});
+//listar aluno
+router.get("/", alunosController.list);
 
-//edit categoria
+//edit aluno
 router.get("/edit", async (req, res)=> {  // router - rota | "/edit" - rota atual | render - montar/construir
     res.render("base", {
         title: "Editar Alunos",
@@ -19,7 +14,7 @@ router.get("/edit", async (req, res)=> {  // router - rota | "/edit" - rota atua
     })
 });
 
-//add categoria
+//add aluno
 router.get("/add", alunosController.createForm);
 
 router.post("/add", alunosController.create);

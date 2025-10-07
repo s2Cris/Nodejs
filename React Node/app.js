@@ -39,6 +39,9 @@ app.use("/cursos", cursosRouter);
 import equipeRouter from "./routes/equipe.js";
 app.use("/equipe", equipeRouter);
 
+import professoresRouter from "./routes/professores.js";
+app.use("/professores", professoresRouter);
+
 //rodar o server
 app.listen(3000, () => {
     console.log("Servidor em execução - porta 3000");
