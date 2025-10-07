@@ -4,7 +4,7 @@ import * as professoresController from "../controllers/professoresController.js"
 const router = express.Router();
 
 //listar professor
-router.get("/", professoresControllerController.list);
+router.get("/", professoresController.list);
 
 //edit professor
 router.get("/edit", async (req, res)=> {  // router - rota | "/edit" - rota atual | render - montar/construir
