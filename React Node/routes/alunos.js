@@ -6,13 +6,12 @@ const router = express.Router();
 //listar aluno
 router.get("/", alunosController.list);
 
-//edit aluno
-router.get("/edit", async (req, res)=> {  // router - rota | "/edit" - rota atual | render - montar/construir
-    res.render("base", {
-        title: "Editar Alunos",
-        view: "alunos/edit",
-    })
-});
+// edit aluno - carrega formulário com dados (id via query: ?id=...)
+router.get("/edit", alunosController.editForm);
+// atualiza aluno (form POST)
+router.post("/edit", alunosController.update);
+// remove aluno (form POST)
+router.post("/delete", alunosController.removeById);
 
 //add aluno
 router.get("/add", alunosController.createForm);

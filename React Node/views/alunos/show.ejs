@@ -19,8 +19,11 @@
                     <td><%= aluno.nome %></td>
                     <td><%= aluno.descricao %> </td>
                     <td class="text-end">
-                        <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                        <a href="#"><i class="bi bi-trash-fill"></i></a>
+                        <a href="/alunos/edit?id=<%= aluno.id %>" class="me-2"><i class="bi bi-pencil-fill"></i></a>
+                        <form action="/alunos/delete" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= aluno.id %>">
+                            <button type="submit" class="btn btn-link p-0 m-0" onclick="return confirm('Remover este aluno?')"><i class="bi bi-trash-fill text-danger"></i></button>
+                        </form>
                     </td>
                 </tr>
             <% }) %>

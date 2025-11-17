@@ -19,8 +19,11 @@
                     <td><%= curso.nome %></td>
                     <td><%= curso.descricao %> </td>
                     <td class="text-end">
-                        <a href="#"><i class="bi bi-pencil-fill"></i></a>
-                        <a href="#"><i class="bi bi-trash-fill"></i></a>
+                        <a href="/cursos/edit?id=<%= curso.id %>" class="me-2"><i class="bi bi-pencil-fill"></i></a>
+                        <form action="/cursos/delete" method="POST" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= curso.id %>">
+                            <button type="submit" class="btn btn-link p-0 m-0" onclick="return confirm('Remover este curso?')"><i class="bi bi-trash-fill text-danger"></i></button>
+                        </form>
                     </td>
                 </tr>
             <% }) %>
